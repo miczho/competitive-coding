@@ -1,5 +1,5 @@
 '''
-#dp #longest-common-subsequence #lcs
+#dp #lcs
 '''
 
 import sys
