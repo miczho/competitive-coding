@@ -1,4 +1,8 @@
-#dp
-#union-find
+~~~ Some Specific Tags ~~~
 
+DYNAMIC PROGRAMMING
+#knapsack
+#lcs
+
+WHEN A**HOLES TLE YOU
 #python-io

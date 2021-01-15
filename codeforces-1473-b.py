@@ -1,7 +1,3 @@
-'''
-#string #lcm
-'''
-
 import sys, math
 
 def lcm(x, y):
