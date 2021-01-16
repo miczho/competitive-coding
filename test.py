@@ -4,8 +4,7 @@ import sys
 
 
 def main():
-    a = ['hi', 'there']
-    print(' '.join(a))
+    pass
 
 if __name__ == "__main__":
     main()
