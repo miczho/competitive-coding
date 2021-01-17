@@ -1,6 +1,6 @@
 '''
 This style is easy to edit; l and r never cross each other.
-#binary-search
+#binsearch
 '''
 
 import sys

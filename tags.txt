@@ -5,7 +5,7 @@ DYNAMIC PROGRAMMING
 #lcs
 
 BINARY SEARCH
-...wip...
+#binsearch-float
 
 WHEN A**HOLES TLE YOU FOR USING PYTHON
 #python-io
