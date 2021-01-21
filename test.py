@@ -1,44 +1,62 @@
-'''
-#python-io
-'''
-
 import sys
 
-# need this
-input = sys.stdin.readline 
+class Solution:
+	def __init__(self):
+		self.d = {}
+		self.xdiff = 0
+		self.ydiff = 0
 
-MAXN = 2 * 100_000 + 5
-cnt, top, bot = [0]*MAXN, [[0]*MAXN for i in range(2)], [[0]*MAXN for i in range(2)]
+	def insert(self, x, y):
+		self.d[x - self.xdiff] = y - self.ydiff
 
-def program(n, m, s):
+	def get(self, x):
+		return self.d[x - self.xdiff] + self.ydiff
+
+	def addToKey(self, x):
+		self.xdiff += x
+
+	def addToValue(self, y):
+		self.ydiff += y
+
+
+class Solution2:
+	def __init__(self):
+		self.d = {}
+
+	def insert(self, x, y):
+		self.d[x] = y
+
+	def get(self, x):
+		return self.d[x]
+
+	def addToKey(self, x):
+		# self.xdiff += x
+		pass
+
+	def addToValue(self, y):
+		# self.ydiff += y
+		pass
+
+
+def test(q, q_args):
+	n, s, ans = len(q), Solution(), 0
+
 	for i in range(n):
-		if s[i] == '+': cnt[i+1] = cnt[i] + 1
-		else: cnt[i+1] = cnt[i] - 1
-	for i in range(1, n+1):
-		top[0][i] = bot[0][i] = top[1][i] = bot[1][i] = cnt[i]	
-	for i in range(1, n+1):
-		top[0][i] = max(top[0][i], top[0][i-1])
-		bot[0][i] = min(bot[0][i], bot[0][i-1])	
-	for i in range(n-1, -1, -1):
-		top[1][i] = max(top[1][i], top[1][i+1])
-		bot[1][i] = min(bot[1][i], bot[1][i+1])
-
-	for _ in range(m):
-		l, r = map(int, input().split())
-		diff = cnt[l-1] - cnt[r]
-		if r < n:
-			t = max(top[0][l-1], top[1][r+1] + diff)
-			b = min(bot[0][l-1], bot[1][r+1] + diff)
+		if q[i] == 'insert':
+			s.insert(q_args[i][0], q_args[i][1])
+		elif q[i] == 'get':
+			ans += s.get(q_args[i][0])
+		elif q[i] == 'addToKey':
+			s.addToKey(q_args[i][0])
 		else:
-			t, b = top[0][l-1], bot[0][l-1]
-		print(str(t-b+1) + '\n')
-		
+			s.addToValue(q_args[i][0])
+
+	print(ans)
+
 
 def main():
-	for t in range(int(input())):
-		n, m = map(int, input().split())
-		s = input()
-		program(n, m, s)
+	test(['insert', 'insert', 'addToValue', 'addToKey', 'get'], [[1,2], [2,3], [2], [1], [3]])
+	test(['insert', 'addToValue', 'get', 'insert', 'addToKey', 'addToValue', 'get'], [[1,2], [2], [1], [2,3], [1], [-1], [3]])
 
 if __name__ == "__main__":
-    main()
+	main()
