@@ -1,11 +1,9 @@
 import sys
 
 def main():
-	a = [1, 2, 3]
-	b = a.copy()
-	b.append(4)
-	print(a)
-	print(b)
+	print(1)
+	print(300000)
+	print('LR' * 150000)
 
 if __name__ == "__main__":
 	main()
