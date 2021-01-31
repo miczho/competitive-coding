@@ -4,15 +4,6 @@
 
 import java.util.*;
 
-class Main {
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        int[][] grid = {{0,1},{1,0}};
-        System.out.println(s.shortestPathBinaryMatrix(grid));
-    }
-}
-
-
 class Solution {  
     static final int inf = -1;	// Can also set this to a rly large num
 
@@ -74,4 +65,13 @@ class Solution {
             return(dist[length-1][width-1]);     // Returns -1 if the end is unreachable, or 1 for a 1x1 matrix
         }
     }
+
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[][] grid = {{0,1},{1,0}};
+        System.out.println(s.shortestPathBinaryMatrix(grid));
+    }
 }
+
+
