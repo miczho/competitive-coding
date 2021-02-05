@@ -1,9 +1,8 @@
-import sys
+import sys, random
 
 def main():
-	print(1)
-	print(300000)
-	print('LR' * 150000)
+	a = {(1, 2), (2, 2)}
+	print(a)
 
 if __name__ == "__main__":
 	main()
