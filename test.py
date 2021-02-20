@@ -1,8 +1,10 @@
-import sys, random
+import sys
+import numpy as np
 
 def main():
-	a = {(1, 2), (2, 2)}
-	print(a)
+	s = {3}
+	# s.remove(3)
+	print(s)
 
 if __name__ == "__main__":
 	main()
