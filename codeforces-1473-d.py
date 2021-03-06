@@ -26,7 +26,7 @@ def program(n, m, s):
 
 	for _ in range(m):
 		# strip() removes any whitespace (???)
-		l, r = map(int, input().strip().split())
+		l, r = map(int, input().split())
 		diff = cnt[l-1] - cnt[r]
 		if r < n:
 			t = max(top[0][l-1], top[1][r+1] + diff)
@@ -37,8 +37,8 @@ def program(n, m, s):
 		
 
 def main():
-	for t in range(int(input().strip())):
-		n, m = map(int, input().strip().split())
+	for t in range(int(input())):
+		n, m = map(int, input().split())
 		s = input().strip()
 		program(n, m, s)
 
