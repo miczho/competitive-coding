@@ -10,7 +10,7 @@
 ### BINARY SEARCH
 - \#binsearch-float
 
-### Math
+### MATH
 - \#factors
 
 ### WHEN A\*\*HOLES TLE YOU FOR USING PYTHON
