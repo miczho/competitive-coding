@@ -1,5 +1,11 @@
 # Some Specific Tags
 
+### DFS
+
+### BFS
+
+### Sliding Window
+
 ### DYNAMIC PROGRAMMING
 - \#knapsack
 - \#lcs
