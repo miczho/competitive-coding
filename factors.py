@@ -3,9 +3,7 @@
 """
 
 def gcd(a, b):
-    while b != 0:
-        a, b = b, a
-        b %= a
+    while b != 0: a, b = b, a%b
     return a
 
 def prime_factors(n):
