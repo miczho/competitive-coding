@@ -9,6 +9,7 @@
 def main():
     s, stack, num = input(), [], []
 
+
     for ch in s:
         if ch == '(':
             stack.append('(')
