@@ -9,8 +9,6 @@
 def main():
     pass
 
-# tes
-# test
 
 if __name__ == "__main__":
     main()
