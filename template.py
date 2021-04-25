@@ -1,6 +1,7 @@
 import sys
+import io, os
 
-# input = sys.stdin.readline
+# input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
 
 # def
 
