@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.*;
 
-public class Main {
+class Main {
     private int n;
     private int l;
     private int[] arr;
@@ -15,23 +15,16 @@ public class Main {
     public boolean find(int x) {
         int gt = 0; int lt = 0;
         for(int i : arr) {
-            if(i == x - 1)
-                lt++;
-            else if(i >= x) 
+            if(i >= x)
                 gt++;
+            else if(i == x - 1) 
+                lt++;
         }
         int ans = gt + Math.min(lt, l);
-        if(ans >= x) {
-            // System.out.println(x);
-            // System.out.println(ans);
-            return true;
-        }
-        return false;
+        return ans >= x ? true : false;
     }
 
     public int acowdemiaI() {
-        int ans = -1;
-
         int l = 0; int r = 1_000_000;
         while(r > l + 1) {
             int m = (l + r) / 2;

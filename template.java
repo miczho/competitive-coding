@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+class Main {
     // private vars here
 
     public Main() {
