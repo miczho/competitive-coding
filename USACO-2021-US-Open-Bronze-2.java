@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+class Main {
     private int k;
     private int n;
     private String[] ppl;
@@ -19,7 +19,6 @@ public class Main {
         for(int i=0; i<k; i++) {
             int cnt = 0;
             for(int j=1; j<n; j++) {
-                // System.out.println("aa".compareTo("ab"));
                 if(arr[i][j-1].compareTo(arr[i][j]) > 0) {
                     cnt++;
                 }
