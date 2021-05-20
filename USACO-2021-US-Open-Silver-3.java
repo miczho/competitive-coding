@@ -29,7 +29,6 @@ class Main {
         int left = 0; int right = n+1;
         while(right > (left + 1)) {
             int mid = (left + right) / 2;
-            // System.out.println(m);
             if(this.find(mid))
                 left = mid;
             else
@@ -49,6 +48,5 @@ class Main {
 
         Main s = new Main(n, k, l, arr);
         System.out.println(s.acowdemia());
-        // System.out.println(s.find(95100));
     }
 }
