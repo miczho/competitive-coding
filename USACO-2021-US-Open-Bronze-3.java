@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+class Main {
     private int n;
     private int m;
     private char[][] arr;
@@ -50,8 +50,7 @@ public class Main {
                 }
             }
         }
-        // for(char[] c : arr)
-        //     System.out.println(Arrays.toString(c));
+
         return ans;
     }
 
@@ -63,10 +62,6 @@ public class Main {
         arr[n+1] = arr[0];
         for(int i = 1; i <= n; i++)
             arr[i] = ('.' + sc.next() + '.').toCharArray();
-
-        // for(char[] c : arr)
-        //     System.out.println(Arrays.toString(c));
-        // System.out.println();
 
         Main s = new Main(n, m, arr);
         System.out.println(s.acowdemiaIII());
