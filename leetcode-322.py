@@ -14,6 +14,7 @@ class Solution:
             try: dp[i] = 1
             except: continue
         
+        # unbounded knapsack
         for i in range(1, amount+1):
             for j in range(n):
                 if i + coins[j] <= amount:
