@@ -77,21 +77,21 @@ class Main {
 
     public static void clockTree() throws IOException {
         int res = 0;
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("clocktree.out")));
+        // PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("clocktree.out")));
         for(int i = 0; i < n; i++) {
             copy = Arrays.copyOf(clock, clock.length);
             if(dfsDriver(i) < 2) res++;
         }
 
-        out.print(res);
-        out.close();
-        // System.out.println(res);
+        // out.print(res);
+        // out.close();
+        System.out.println(res);
     }
 
     public static void main(String[] args) throws IOException {
-        File file = new File("clocktree.in");
-        FastReader sc = new FastReader(file);
-        // FastReader sc = new FastReader(System.in);
+        // File file = new File("clocktree.in");
+        // FastReader sc = new FastReader(file);
+        FastReader sc = new FastReader(System.in);
         n = sc.nextInt();
         clock = new int[n];
         for(int i = 0; i < n; i++) {

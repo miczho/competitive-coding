@@ -1,78 +1,123 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.*;
+import java.lang.*;
 
 class Main {
-    private int n;
-    private int[] arr;
-    private Map<Integer, List<Integer>> map;
-    private Random rand;
-
-    public Main(int n, int[] arr, Map<Integer, List<Integer>> map) {
-        this.n = n;
-        this.arr = arr;
-        this.map = map;
-        this.rand = new Random();
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+ 
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() { return Integer.parseInt(next()); }
+ 
+        long nextLong() { return Long.parseLong(next()); }
+ 
+        double nextDouble() { return Double.parseDouble(next()); }
+ 
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
     }
+    
+    // vars
+    static final int MAXN = 300_300;
+    static int n;
+    static int q;
+    static int[] arr = new int[MAXN];
+    static List<Integer>[] sets;
+    static int[] rand = new int[25];
 
-    public int bin(int pick, int val) {
-        List<Integer> num_freq = this.map.get(pick);
+    static PrintWriter out;
 
-        int l = -1; int r = num_freq.size();
-        while(r > l + 1) {
-            int m = (l + r) / 2;
-            if(num_freq.get(m) <= val) {
-                l = m;
+    public static int bin(int pick, int val) {
+        List<Integer> num_freq = sets[pick];
+        // System.out.println(pick);
+
+        int lo = -1; 
+        int hi = num_freq.size();
+        while(hi > lo + 1) {
+            int mid = (lo + hi) / 2;
+            if(num_freq.get(mid) <= val) {
+                lo = mid;
             } else {
-                r = m;
+                hi = mid;
             }
         }
 
-        return l;
+        return lo;
     }
 
-    public int cutAndStick(int l, int r) {
+    public static int cutAndStick(int l, int r) {
         int max_freq = (r - l + 2) / 2;
         int[] picks = new int[25];
-        
-        for(int i=0; i<25; i++) {
-            int tmp = this.rand.nextInt(r-l+1) + l;
-            picks[i] = this.arr[tmp];
-        }
 
         for(int i=0; i<25; i++) {
-            int lower = this.bin(picks[i], l-1);
-            int upper = this.bin(picks[i], r);
+            int tmp = rand[i] % (r - l + 1) + l;
+            picks[i] = arr[tmp];
+        }
+ 
+        for(int i=0; i<25; i++) {
+            int lower = bin(picks[i], l-1);
+            int upper = bin(picks[i], r);
             if(upper - lower > max_freq) {
                 return 2 * (upper - lower) - r + l - 1;
             }
         }
-
+ 
         return 1;
     }
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    public static void main(String[] args) {
+        FastReader sc = new FastReader();
+        out = new PrintWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(st.nextToken()); int q = Integer.parseInt(st.nextToken());
-        int[] arr = new int[n];
-        Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
-        st = new StringTokenizer(br.readLine());
-        for(int i=0; i<n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-            map.putIfAbsent(arr[i], new ArrayList<Integer>());
-            map.get(arr[i]).add(i);
+        n = sc.nextInt();
+        q = sc.nextInt();
+        sets = new Vector[n+1];
+        for(int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            sets[i+1] = new Vector<>();
         }
 
-        Main sol = new Main(n, arr, map);
-        StringBuilder ans = new StringBuilder();
-        for(int z=0; z<q; z++) {
-            st = new StringTokenizer(br.readLine());
-            int l = Integer.parseInt(st.nextToken()); int r = Integer.parseInt(st.nextToken());
+        for(int i = 0; i < n; i++) sets[arr[i]].add(i);
+
+        for(int i = 0; i < 25; i++) rand[i] = (int)(Math.random() * 3 * 1000000);
+
+        while(q-- > 0) {
+            int l = sc.nextInt();
+            int r = sc.nextInt();
             l--; r--;
-            ans.append(sol.cutAndStick(l, r));
-            ans.append("\n");
+
+            out.println(cutAndStick(l, r));
         }
-        System.out.print(ans.toString());
+        out.flush();
+        out.close();
     }
+
 }
