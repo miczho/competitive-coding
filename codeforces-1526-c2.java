@@ -48,11 +48,38 @@ class Solution {
     }
     
     // vars
-    
+    static final int MAXN = 200_200;
+    static int n;
+    static int[] arr = new int[MAXN];
+
+    public static void potionsII() {
+        long health = 0;
+        PriorityQueue<Integer> q = new PriorityQueue<>(n);
+
+        for(int i = 0; i < n; i++) {
+            if(health + arr[i] >= 0) {
+                health += arr[i];
+                q.add(arr[i]);
+            } else {
+                if(!q.isEmpty() && q.peek() < arr[i]) {
+                    health -= q.poll();
+                    health += arr[i];
+                    q.add(arr[i]);
+                }
+            }
+        }
+
+        System.out.println(q.size());
+    }
 
     public static void main(String[] args) throws IOException {
         FastReader in = new FastReader(System.in);
 
+        n = in.nextInt();
+        for(int i = 0; i < n; i++) 
+            arr[i] = in.nextInt();
+
+        potionsII();
     }
 
 }
