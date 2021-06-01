@@ -3,15 +3,6 @@ import java.util.*;
 import java.lang.*;
 
 class Solution {
-    static Reader in;
-    static Writer out;
-    
-    // vars
-
-    public static void solve() {
-
-    }
-
     static class Reader {
         BufferedReader br;
         StringTokenizer st;
@@ -54,18 +45,6 @@ class Solution {
             }
             return str;
         }
-
-        int[] readArray(int size) {
-            int[] a = new int[size];
-            for (int i = 0; i < size; i++) a[i] = nextInt();
-            return a;
-        }
- 
-        double[] readArrayDouble(int size) {
-            double[] a = new double[size];
-            for (int i = 0; i < size; i++) a[i] = nextDouble();
-            return a;
-        }
     }
 
     static class Writer {
@@ -83,7 +62,7 @@ class Solution {
             }
         }
         
-        void print(Object object) {
+        public void print(Object object) {
             try {
                 bw.append("" + object);
             } catch (IOException e) {
@@ -91,7 +70,7 @@ class Solution {
             }
         }
 
-        void println(Object object) {
+        public void println(Object object) {
             print(object);
             try {
                 bw.append("\n");
@@ -100,7 +79,7 @@ class Solution {
             }
         }
 
-        void close() {
+        public void close() {
             try {
                 bw.close();
             } catch (IOException e) {
@@ -108,12 +87,49 @@ class Solution {
             }
         }
     }
+    
+    static Reader in = new Reader(System.in);
+    static Writer out = new Writer(System.out);
 
-    public static void main(String[] args) throws Exception {
-        in = new Reader(System.in);
-        out = new Writer(System.out);
-        
-        solve();
+    // vars
+    static int n;
+    static int m;
+    static char[] arr;
+
+    public static void gameOfLife() {
+        while(m-- > 0) {
+            List<Integer> life = new ArrayList<>();
+            for(int i = 0; i < n; i++) {
+                if(arr[i] == '0') {
+                    if((i-1) >= 0 && arr[i-1] == '1') {
+                        if((i+1) >= n || arr[i+1] == '0') {
+                            life.add(i);
+                        }
+                    } else {
+                        if((i+1) < n && arr[i+1] == '1') {
+                            life.add(i);
+                        }
+                    }
+                }
+            }
+
+            if(life.isEmpty()) break;
+            for(int i = 0; i < life.size(); i++) {
+                arr[life.get(i)] = '1';
+            }
+        }
+
+        out.println(new String(arr));
+    }
+
+    public static void main(String[] args) {
+        int t = in.nextInt();
+        while(t-- > 0) {
+            n = in.nextInt();
+            m = in.nextInt();
+            arr = in.next().toCharArray();
+            gameOfLife();
+        }
         out.close();
     }
 }

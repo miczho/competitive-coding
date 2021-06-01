@@ -3,24 +3,15 @@ import java.util.*;
 import java.lang.*;
 
 class Solution {
-    static Reader in;
-    static Writer out;
-    
-    // vars
-
-    public static void solve() {
-
-    }
-
-    static class Reader {
+    static class FastReader {
         BufferedReader br;
         StringTokenizer st;
 
-        public Reader(InputStream stream) {
+        public FastReader(InputStream stream) {
             br = new BufferedReader(new InputStreamReader(stream));
         }
  
-        public Reader(File file) {
+        public FastReader(File file) {
             try {
                 br = new BufferedReader(new FileReader(file));
             } catch(FileNotFoundException e) {
@@ -54,36 +45,16 @@ class Solution {
             }
             return str;
         }
-
-        int[] readArray(int size) {
-            int[] a = new int[size];
-            for (int i = 0; i < size; i++) a[i] = nextInt();
-            return a;
-        }
- 
-        double[] readArrayDouble(int size) {
-            double[] a = new double[size];
-            for (int i = 0; i < size; i++) a[i] = nextDouble();
-            return a;
-        }
     }
 
-    static class Writer {
+    static class FastWriter {
         BufferedWriter bw;
         
-        public Writer(OutputStream stream) {
+        public FastWriter(OutputStream stream) {
             bw = new BufferedWriter(new OutputStreamWriter(stream));
         }
-
-        public Writer(File file) {
-            try {
-                bw = new BufferedWriter(new FileWriter(file));
-            } catch(IOException e) {
-                e.printStackTrace();
-            }
-        }
         
-        void print(Object object) {
+        public void print(Object object) {
             try {
                 bw.append("" + object);
             } catch (IOException e) {
@@ -91,7 +62,7 @@ class Solution {
             }
         }
 
-        void println(Object object) {
+        public void println(Object object) {
             print(object);
             try {
                 bw.append("\n");
@@ -100,7 +71,7 @@ class Solution {
             }
         }
 
-        void close() {
+        public void close() {
             try {
                 bw.close();
             } catch (IOException e) {
@@ -108,12 +79,38 @@ class Solution {
             }
         }
     }
+    
+    // vars
+    static int n;
+    static FastReader in = new FastReader(System.in);
+    static FastWriter out = new FastWriter(System.out);
 
-    public static void main(String[] args) throws Exception {
-        in = new Reader(System.in);
-        out = new Writer(System.out);
-        
-        solve();
+    public static void compressionExpansion() {
+        Stack<String> s = new Stack<>(); 
+        while(n-- > 0) {
+            String a = in.next();
+            if(!s.isEmpty() && (Integer.parseInt(a) - 1) == Integer.parseInt(s.peek())) {
+                s.pop();
+                s.push(a);
+            } else if(a.equals("1")) {
+                s.push(a);
+            } else {
+                while((Integer.parseInt(a) - 1) != Integer.parseInt(s.peek())) {
+                    s.pop();
+                }
+                s.pop();
+                s.push(a);
+            }
+            out.println(String.join(".", s));
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        int t = in.nextInt();
+        while(t-- > 0) {
+            n = in.nextInt();
+            compressionExpansion();
+        }
         out.close();
     }
 }

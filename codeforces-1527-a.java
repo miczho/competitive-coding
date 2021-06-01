@@ -7,9 +7,22 @@ class Solution {
     static Writer out;
     
     // vars
+    static int n;
 
     public static void solve() {
+        int t = in.nextInt();
+        while(t-- > 0) {
+            n = in.nextInt();
+            thereWasK();
+        }
+    }
 
+    public static void thereWasK() {
+        int res = 1;
+        while(res * 2 <= n) {
+            res *= 2;
+        }
+        out.println(res - 1);
     }
 
     static class Reader {
@@ -112,7 +125,7 @@ class Solution {
     public static void main(String[] args) throws Exception {
         in = new Reader(System.in);
         out = new Writer(System.out);
-        
+
         solve();
         out.close();
     }
