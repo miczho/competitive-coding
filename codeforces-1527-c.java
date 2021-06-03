@@ -7,9 +7,37 @@ class Solution {
     static Writer out;
     
     // vars
+    static int n;
+    static int[] arr;
+    static long[] dp;
+    static Map<Integer, Long> val;
 
     public static void solve() {
-        
+        int t = in.nextInt();
+        while(t-- > 0) {
+            n = in.nextInt();
+            arr = in.readArray(n);
+            
+            seqPairWeight();
+        }
+    }
+
+    public static void seqPairWeight() {
+        val = new HashMap<>();
+        dp = new long[n];
+        long res = 0;
+
+        for(int i = 0; i < n; i++) {
+            if(i > 0) dp[i] = dp[i-1];
+
+            long tmp = val.getOrDefault(arr[i], (long)(0));
+            val.put(arr[i], tmp + i + 1);
+
+            dp[i] += tmp;
+            res += dp[i];
+        }
+
+        out.println(res);
     }
 
     static class Reader {
