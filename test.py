@@ -7,8 +7,8 @@ import sys, random
 # import math
 
 def main():
-    print(1)
-    print('?'*200000)
+    print('a' - 'b')
 
+    
 if __name__ == "__main__":
     main()
