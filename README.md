@@ -1,6 +1,7 @@
 # Some Specific Tags
 
 ### DFS
+- \#backtracking
 
 ### BFS
 
@@ -15,9 +16,7 @@
 
 ### BINARY SEARCH
 - \#binsearch-float
+- \#ternary-search
 
 ### MATH
 - \#factors
-
-### WHEN A\*\*HOLES TLE YOU FOR USING PYTHON
-- \#python-io

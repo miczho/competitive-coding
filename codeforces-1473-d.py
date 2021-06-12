@@ -1,7 +1,3 @@
-'''
-#python-io
-'''
-
 import sys
 
 # need this

@@ -1,3 +1,7 @@
+"""
+#dfs #backtracking
+"""
+
 class Solution(object):
     def solveSudoku(self, board):
         """
@@ -14,6 +18,7 @@ class Solution(object):
 
             return True
 
+        # DFS
         def solve(x, y):
             if x == 9 and y == 0: 
                 return True
@@ -22,9 +27,14 @@ class Solution(object):
 
             for i in range(ord('1'), ord(':')):
                 if isValid(x, y, chr(i)):
+                    # Setting a possible value
                     board[x][y] = chr(i);
+                    
+                    # Recurively checking if we can solve the board
                     if solve(x+1 if y == 8 else x, 0 if y == 8 else y+1):
                         return True
+
+                    # Backtracking if we find out that this value does not work
                     board[x][y] = '.'
 
             return False
