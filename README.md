@@ -19,4 +19,7 @@
 - \#ternary-search
 
 ### MATH
+- \#calculator
+	- \#postfix
 - \#factors
+- \#primes
