@@ -7,18 +7,18 @@
 
 ### Sliding Window
 
-### DYNAMIC PROGRAMMING
+### Dynamic Programming
 - \#knapsack
 - \#lcs
 - \#game-theory
 	- \#nim
 	- \#minimax
 
-### BINARY SEARCH
+### Binary Search
 - \#binsearch-float
 - \#ternary-search
 
-### MATH
+### Math
 - \#calculator
 	- \#postfix
 - \#factors

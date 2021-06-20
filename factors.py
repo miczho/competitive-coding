@@ -18,3 +18,13 @@ def prime_factors(n):
     if n > 1:
         factors.add(n)
     return factors
+
+def factors(n):
+    i = 1
+    factors = set()
+    while i * i <= n:
+        if not n % i:
+            factors.add(i)
+            factors.add(n // i)
+        i += 1
+    return factors

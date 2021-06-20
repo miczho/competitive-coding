@@ -1,15 +1,52 @@
-import sys, random
-# import pandas as pd
-# import matplotlib.pyplot as plt
-# import numpy as np
-# import re
-# from bs4 import BeautifulSoup
-# import math
+import sys
+from math import *
+
+def printNcR(n, r):
+ 
+    # p holds the value of n*(n-1)*(n-2)...,
+    # k holds the value of r*(r-1)...
+    p = 1
+    k = 1
+ 
+    # C(n, r) == C(n, n-r),
+    # choosing the smaller value
+    if (n - r < r):
+        r = n - r
+ 
+    if (r != 0):
+        while (r):
+            p *= n
+            k *= r
+ 
+            # gcd of p, k
+            m = gcd(p, k)
+ 
+            # dividing by gcd, to simplify product
+            # division by their gcd saves from
+            # the overflow
+            p //= m
+            k //= m
+            p %= 10 ** 9 + 7
+            k %= 10 ** 9 + 7
+ 
+            n -= 1
+            r -= 1
+ 
+        # k should be simplified to 1
+        # as C(n, r) is a natural number
+        # (denominator should be 1 )
+ 
+    else:
+        p = 1
+ 
+    # if our approach is correct p = ans and k =1
+    print(p)
 
 def main():
-    print(1000)
-    for i in range(1000):
-        print(random.randint(0, 10**9), end=' ')
+    n = 50
+    r = 25
+ 
+    printNcR(n, r)
 
     
 if __name__ == "__main__":

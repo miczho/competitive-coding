@@ -1,0 +1,157 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+class Solution {
+    static Reader in;
+    static Writer out;
+    
+    // vars
+    static int n;
+    static long[] arr;
+
+    public static void solve() {
+        n = in.nextInt();
+        int q = in.nextInt();
+        arr = in.readArrayLong(n);
+
+        while(q-- > 0) {
+            long k = in.nextLong();
+            out.println(kthExcluded(k) + k);
+        }
+    }
+
+    public static int kthExcluded(long k) {
+        int lo = -1; int hi = n;
+
+        while(hi > lo + 1) {
+            int mid = lo + (hi - lo) / 2;
+
+            if(arr[mid] - mid <= k)
+                lo = mid;
+            else
+                hi = mid;
+        }
+
+        return hi;
+    }
+
+    static class Reader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public Reader(InputStream stream) {
+            br = new BufferedReader(new InputStreamReader(stream));
+        }
+ 
+        public Reader(File file) {
+            try {
+                br = new BufferedReader(new FileReader(file));
+            } catch(FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+ 
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() { return Integer.parseInt(next()); }
+ 
+        long nextLong() { return Long.parseLong(next()); }
+ 
+        double nextDouble() { return Double.parseDouble(next()); }
+ 
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+
+        int[] readArray(int size) {
+            int[] a = new int[size];
+            for (int i = 0; i < size; i++) a[i] = nextInt();
+            return a;
+        }
+
+        long[] readArrayLong(int size) {
+            long[] a = new long[size];
+            for (int i = 0; i < size; i++) a[i] = nextLong();
+            return a;
+        }
+ 
+        double[] readArrayDouble(int size) {
+            double[] a = new double[size];
+            for (int i = 0; i < size; i++) a[i] = nextDouble();
+            return a;
+        }
+    }
+
+    static class Writer {
+        BufferedWriter bw;
+        
+        public Writer(OutputStream stream) {
+            bw = new BufferedWriter(new OutputStreamWriter(stream));
+        }
+
+        public Writer(File file) {
+            try {
+                bw = new BufferedWriter(new FileWriter(file));
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        void print(Object object) {
+            try {
+                bw.append("" + object);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        void println(Object object) {
+            print(object);
+            try {
+                bw.append("\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        void flush() {
+            try {
+                bw.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        void close() {
+            try {
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        in = new Reader(System.in);
+        out = new Writer(System.out);
+        
+        solve();
+        out.close();
+    }
+}
