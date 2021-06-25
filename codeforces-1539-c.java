@@ -6,10 +6,38 @@ class Solution {
     static Reader in;
     static Writer out;
     
-    // vars
-
     public static void solve() {
-        
+        int n = in.nextInt();
+        long k = in.nextLong(), x = in.nextLong();
+        long[] arr_tmp = in.readArrayLong(n);
+        Long[] arr = new Long[n];
+        for(int i = 0; i < n; i++)
+            arr[i] = Long.valueOf(arr_tmp[i]);
+
+        out.println(stableGroups(n, k, x, arr));
+        out.flush();
+    }
+
+    public static int stableGroups(int n, long k, long x, Long[] arr) {
+        List<Long> gaps = new ArrayList<>();
+
+        Arrays.sort(arr);
+        for(int i = 1; i < n; i++) {
+            long tmp = arr[i] - arr[i-1];
+            if(tmp > x)
+                gaps.add(((tmp + x - 1) / x) - 1);
+        }
+
+        Collections.sort(gaps);
+        int res = gaps.size() + 1;
+        for(Long i : gaps) {
+            if(i > k)
+                break;
+            k -= i;
+            res--;
+        }
+
+        return res;
     }
 
     static class Reader {

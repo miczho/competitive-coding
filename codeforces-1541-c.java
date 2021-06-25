@@ -5,11 +5,27 @@ import java.lang.*;
 class Solution {
     static Reader in;
     static Writer out;
-    
-    // vars
 
     public static void solve() {
-        
+        int t = in.nextInt();
+
+        while(t-- > 0) {
+            int n = in.nextInt();
+            long[] d_tmp = in.readArrayLong(n);
+            Long[] d = new Long[n];
+            for(int i = 0; i < n; i++)
+                d[i] = Long.valueOf(d_tmp[i]);
+
+            long res = 0;
+            Arrays.sort(d);
+            for(int i = 1; i < n; i++) {
+                if(i-2 >= 0)
+                    res -= d[i] * (i-1) - d[i-2];
+                d[i] += d[i-1];
+            }
+
+            out.println(res);
+        }
     }
 
     static class Reader {
