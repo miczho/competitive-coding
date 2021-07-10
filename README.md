@@ -2,6 +2,7 @@
 
 ### DFS
 - \#backtracking
+- \#lca
 
 ### BFS
 
@@ -13,6 +14,7 @@
 - \#game-theory
 	- \#nim
 	- \#minimax
+- \#binary-lifting
 
 ### Binary Search
 - \#binsearch-float
