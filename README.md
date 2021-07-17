@@ -1,27 +1,33 @@
-# Some Specific Tags
+# Resources
 
-### DFS
-- \#backtracking
-- \#lca
+https://cp-algorithms.com/
 
-### BFS
+# \#Tags
 
-### Sliding Window
+### Arithmetic
+- calculator
+	- postfix
+- factors
+- primes
+- mods
+	- modular-inverse
+
+### Graphs
+- dfs
+	- backtracking
+- bfs
+- lca
+	- binary-lifting
 
 ### Dynamic Programming
-- \#knapsack
-- \#lcs
-- \#game-theory
-	- \#nim
-	- \#minimax
-- \#binary-lifting
+- dp
+	- knapsack
+	- lcs
+	- game-theory
+		- nim
+		- minimax
 
-### Binary Search
-- \#binsearch-float
-- \#ternary-search
-
-### Math
-- \#calculator
-	- \#postfix
-- \#factors
-- \#primes
+### Searching
+- binsearch
+	- binsearch-float
+- ternary-search

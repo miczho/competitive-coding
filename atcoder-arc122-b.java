@@ -1,5 +1,5 @@
 /*
-#binsearch #ternary-search
+#ternary-search
 
 Splitting into third instead of halves.
 Useful for finding absolute min/max of unimodal functions.

@@ -1,5 +1,7 @@
 """
-#math #calculator #postfix #reverse-polish
+#arithmetic #calculator #postfix #reverse-polish
+
+https://leetcode.com/problems/basic-calculator/
 """
 
 class Solution(object):

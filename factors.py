@@ -1,5 +1,5 @@
 """
-#math #factors
+#arithmetic #factors
 """
 
 def gcd(a, b):
