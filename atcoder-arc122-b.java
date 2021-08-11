@@ -5,7 +5,6 @@ Splitting into third instead of halves.
 Useful for finding absolute min/max of unimodal functions.
 */
 
-
 import java.io.*;
 import java.util.*;
 import java.lang.*;
