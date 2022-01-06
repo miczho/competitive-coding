@@ -1,5 +1,5 @@
 /*
-#dp #knapsack
+#knapsack
 */
 
 import java.io.BufferedReader;

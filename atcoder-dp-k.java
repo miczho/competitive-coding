@@ -2,7 +2,7 @@
 https://atcoder.jp/contests/dp/tasks/dp_k
 
 Nim is a game where two ppl take turns removing objects from a pile
-#dp #game-theory #nim
+#game-theory #nim
 */
 
 import java.util.*;

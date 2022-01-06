@@ -6,28 +6,31 @@ https://cp-algorithms.com/
 
 ### Arithmetic
 - calculator
-	- postfix
+    - postfix
 - factors
 - primes
 - mods
-	- modular-inverse
+    - modular-inverse
+
+### Geometry 
+- geometry
 
 ### Graphs
 - dfs
-	- backtracking
+    - backtracking
 - bfs
 - lca
-	- binary-lifting
+    - binary-lifting
 
 ### Dynamic Programming
 - dp
-	- knapsack
-	- lcs
-	- game-theory
-		- nim
-		- minimax
+- knapsack
+- lcs
+- game-theory
+    - nim
+    - minimax
 
 ### Searching
 - binsearch
-	- binsearch-float
+    - binsearch-float
 - ternary-search

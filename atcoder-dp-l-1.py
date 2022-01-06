@@ -2,7 +2,7 @@
 player1 tries to MAXIMIZE score(player1) - score(player2)
 player2 tries to MINIMIZE score(player1) - score(player2)
 THIS IS THE BOTTOM UP SOLUTION
-#dp #game-theory #minimax
+#game-theory #minimax
 '''
 
 import sys

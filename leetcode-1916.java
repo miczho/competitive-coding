@@ -1,5 +1,5 @@
 /*
-#arithmetic #modular-inverse
+#mods #modular-inverse
 
 A number 'b' is called the modular inverse of 'a' if:
     (a * b) % MOD = 1

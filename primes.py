@@ -1,5 +1,5 @@
 """
-#arithmetic #primes
+#primes
 """
 
 import math

@@ -1,5 +1,5 @@
 '''
-#dp #lcs
+#lcs
 '''
 
 import sys
