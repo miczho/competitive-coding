@@ -40,3 +40,6 @@ Some files will have commented tags inside to help teach important concepts or m
 - binsearch
     - binsearch-float
 - ternary-search
+
+### Segment Tree
+- segtree

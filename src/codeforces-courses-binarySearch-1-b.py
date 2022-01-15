@@ -12,7 +12,7 @@ def closestToTheLeft(n, k, arr, target):
 	r = len(arr)
 
 	while r > l + 1:
-		m = (l + r) // 2
+		m = l + (r - l) // 2
 		if arr[m] <= target:
 			l = m 
 		else:
