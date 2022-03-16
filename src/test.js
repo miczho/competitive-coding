@@ -1,9 +1,10 @@
-// What does this refer to when you invoke a function as a method (that is, 
-// you call a function from an object)? For example:
-//
-
-function foo() {
-    console.log(this);
+const fido = {
+  name: "Fido",
+  breed: "Schnauzer",
+  bark(message) {
+    console.log(`${this.name} the ${this.breed} says, '${message}'`)
+  },
 }
-const obj = {x: 123, foo: foo};
-obj.foo();
+
+const f = Object.create(fido)
+f.bark('my asscrack')

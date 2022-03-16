@@ -31,6 +31,7 @@ Some files will have commented tags inside to help teach important concepts or m
 ### Dynamic Programming
 - dp
 - knapsack
+- lis
 - lcs
 - game-theory
     - nim

@@ -14,25 +14,25 @@ class Solution:
 
         # know this
         def union(x, y):
-        	parent[find(x)] = find(y)
+            parent[find(x)] = find(y)
 
         # know this
         def find(x):
-        	if parent[x] != x: parent[x] = find(parent[x])
-        	return parent[x]
+            if parent[x] != x: parent[x] = find(parent[x])
+            return parent[x]
 
 
         for i, j in allowedSwaps:
-        	union(i, j)
+            union(i, j)
 
         for i in range(n):
-        	parent[i] = find(parent[i])
-        	grp1[parent[i]].append(source[i])
-        	grp2[parent[i]].append(target[i])
+            parent[i] = find(parent[i])
+            grp1[parent[i]].append(source[i])
+            grp2[parent[i]].append(target[i])
         
         for i in range(n):
-        	diff = Counter(grp1[i]) - Counter(grp2[i])
-        	ans += sum(diff.values())
+            diff = Counter(grp1[i]) - Counter(grp2[i])
+            ans += sum(diff.values())
             
         return ans
 

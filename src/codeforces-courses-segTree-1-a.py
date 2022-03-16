@@ -1,21 +1,21 @@
 '''
-#segtree
+#st
 '''
 
 import sys
 
 input = sys.stdin.readline 
 
-segtree_n = 1
+st_n = 1
 # usually this amt of nodes is enough
-while segtree_n < 10 ** 5:
-    segtree_n *= 2
-segtree = [0] * 2 * segtree_n
+while st_n < 10 ** 5:
+    st_n *= 2
+st = [0] * 2 * st_n
 
-def set(i, v, x=0, lx=0, rx=segtree_n):
+def set(i, v, x=0, lx=0, rx=st_n):
     # reached the bottom
     if rx - lx == 1:
-        segtree[x] = v;
+        st[x] = v;
         return
 
     m = (lx + rx) // 2
@@ -25,14 +25,14 @@ def set(i, v, x=0, lx=0, rx=segtree_n):
         set(i, v, 2*x+2, m, rx)
 
     # operation changes based off needs
-    segtree[x] = segtree[2*x+1] + segtree[2*x+2]
+    st[x] = st[2*x+1] + st[2*x+2]
 
 
-def get(l, r, x=0, lx=0, rx=segtree_n):
+def get(l, r, x=0, lx=0, rx=st_n):
     # range is out of bounds
     if l >= rx or r <= lx: return 0
     # range is in bounds
-    if l <= lx and r >= rx: return segtree[x]
+    if l <= lx and r >= rx: return st[x]
 
     # range is partially in bounds
     m = (lx + rx) // 2
