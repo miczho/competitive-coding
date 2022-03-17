@@ -24,16 +24,24 @@ class Solution {
             while (tmp * p[i] <= n) {
                 List<Integer> pair = new ArrayList<Integer>();
                 pair.add(i);
-                pair.add(tmp * p[i]);
+                pair.add(posQ[tmp * p[i]]);
                 pairs.add(pair);
                 tmp++;
             }
         }
 
+        Collections.sort(pairs, new Comparator<List<Integer>>() {
+            public int compare(List<Integer> l1, List<Integer> l2) {
+                int a = l1.get(0) - l2.get(0);
+                int b = -(l1.get(1) - l2.get(1));
+                return a != 0 ? a : b;
+            }
+        });
+
         for (List<Integer> x : pairs) {
             int l = -1, r = tails.size();
 
-            while (l + 1 > r) {
+            while (l + 1 < r) {
                 int m = l + (r - l) / 2;
                 if (tails.get(m) >= x.get(1))
                     r = m;
@@ -53,6 +61,11 @@ class Solution {
     public static void solve() {
         n = in.nextInt();
         p = new int[n]; q = new int[n];
+
+        for (int i = 0; i < n; i++)
+            p[i] = in.nextInt();
+        for (int i = 0; i < n; i++)
+            q[i] = in.nextInt();
 
         out.println(dividingSubsequence());
     }
