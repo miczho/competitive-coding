@@ -1,10 +1,28 @@
-const fido = {
-  name: "Fido",
-  breed: "Schnauzer",
-  bark(message) {
-    console.log(`${this.name} the ${this.breed} says, '${message}'`)
-  },
+let obj = {
+  x: 10,
+  y: 20,
+  show: function () {
+    console.log(this.x, this.y)
+  }
 }
 
-const f = Object.create(fido)
-f.bark('my asscrack')
+let arr = [1, 2]
+
+obj.show()
+console.log(Object.getOwnPropertyNames(obj))
+console.log(Object.getOwnPropertyNames(Array.prototype))
+
+// var myButton = {
+//   content: 'OK',
+//   click() {
+//     console.log(this.content + ' clicked');
+//   }
+// };
+
+// myButton.click();
+
+// var looseClick = myButton.click;
+// looseClick(); // not bound, 'this' is not myButton - it is the globalThis
+
+// var boundClick = myButton.click.bind(myButton);
+// boundClick(); // bound, 'this' is myButton
