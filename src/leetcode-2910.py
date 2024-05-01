@@ -9,6 +9,8 @@ Frequency: {1: 6, 2: 7, 3: 6}
 Next time, it is EXTREMELY IMPORTANT that you prove unidirectional True/False pattern.
 Otherwise you go down the wrong path.
 
+https://leetcode.com/problems/minimum-number-of-groups-to-create-a-valid-assignment/
+
 #2024
 """
 

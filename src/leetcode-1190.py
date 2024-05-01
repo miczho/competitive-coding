@@ -9,6 +9,8 @@ One way to lower the complexity would be to consolidate reverses after the strin
 
 Space Complexity: O(n) where n = length of string
 
+https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/
+
 #2024
 """
 
