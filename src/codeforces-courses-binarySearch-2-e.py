@@ -1,5 +1,5 @@
 '''
-#binsearch #binsearch-float
+#binarySearch #binarySearchFloat
 '''
 
 import sys

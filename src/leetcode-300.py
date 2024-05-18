@@ -1,5 +1,5 @@
 """
-#dp #lis #binsearch
+#dp #lis #binarySearch
 
 https://leetcode.com/problems/longest-increasing-subsequence/
 """
