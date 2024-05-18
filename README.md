@@ -16,7 +16,7 @@ Some files will have commented tags inside to help teach important concepts or m
 - factors
 - primes
 - mods
-    - modular-inverse
+    - modularInverse
 
 ### Geometry 
 - geometry
@@ -26,21 +26,21 @@ Some files will have commented tags inside to help teach important concepts or m
     - backtracking
 - bfs
 - lca
-    - binary-lifting
+    - binaryLifting
 
 ### Dynamic Programming
 - dp
 - knapsack
 - lis
 - lcs
-- game-theory
+- gameTheory
     - nim
     - minimax
 
 ### Searching
-- binsearch
-    - binsearch-float
-- ternary-search
+- binarySearch
+    - binarySearchFloat
+- ternarySearch
 
 ### Segment Tree
-- segtree
+- segmentTree
