@@ -8,27 +8,25 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        pass
+        self.factorFreq = {}
 
-def prime_factors(n):
-    result = []
+        freqNums1 = Counter(nums1)
+        freqNums2 = Counter(nums2)
 
-    # check for 2
-    while n % 2 == 0:
-        result.append(2)
-        n //= 2
+        for n, freq in freqNums1.items():
+            self.addToFactorFreq(n, freq)
 
-    # check for odd values up to sqrt(n)
-    i = 3
-    while i * i <= n:
-        if n % i == 0:
-            result.append(i)
-            n //= i
-        else:
-            i += 2
+        result = 0
+        for n, freq in freqNums2.items():
+            result += self.factorFreq.get(n * k, 0) * freq
+        
+        return result
 
-    # if n > 1, then it's a prime
-    if n > 1:
-        result.append(n)
-
-    return result
+    def addToFactorFreq(self, n, freq):
+        i = 1
+        while i * i <= n:
+            if n % i == 0:
+                self.factorFreq[i] = self.factorFreq.get(i, 0) + 1 * freq
+                if n // i != i:
+                    self.factorFreq[n // i] = self.factorFreq.get(n // i, 0) + 1 * freq
+            i += 1
