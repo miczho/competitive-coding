@@ -3,6 +3,8 @@ This initial soln with pure DP does not work bc I read the problem wrong.
 After a query is completed, nums[] is modified PERMANENTLY.
 This condition makes the problem more complex, you need add use of either segment tree or square root decomposition to solve it.
 
+It is VERY IMPORTANT you do not read a problem wrong in an interview bc that spells lack of understanding requirements.
+
 https://leetcode.com/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/
 
 #2024
