@@ -2,7 +2,9 @@
 Was not able to figure it out on my own. Thought of using DP and while it is possible, it is better solved with sliding window.
 
 Time Complexity:
-O(n * 32)
+O((n + n) * 32)
+= O(32 * 2n)
+= O(64n)
 = O(n) where n = len(nums)
 
 Space Complexity:
@@ -31,7 +33,7 @@ class Solution(object):
         currK = INF  # start at INF bc the subarr is initially empty
         result = INF
 
-        # O(n) time
+        # O(n + n) time bc 'lo' and 'hi' will both only visit 0 to n-1 once
         while hi != n:
             # expand the window until currK gets too small
             while hi != n and currK > k:
