@@ -1,5 +1,5 @@
 """
-#dp #python-dictionary
+#dp #hashMap
 """
 
 import sys

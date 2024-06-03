@@ -1,5 +1,5 @@
 """
-#calculator #postfix #reverse-polish
+#calculator #postfix #reversePolish
 
 https://leetcode.com/problems/basic-calculator/
 """

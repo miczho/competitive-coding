@@ -79,7 +79,7 @@ class Solution(object):
 
 
 """
-Attempt #2 with greedy
+Attempt 2 with greedy
 Time complexity may require a revisit
 
 Time Complexity:

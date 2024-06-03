@@ -1,5 +1,5 @@
 """
-#lru-cache
+#lruCache
 """
 
 class Node():

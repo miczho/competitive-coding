@@ -1,5 +1,5 @@
 '''
-#union-find
+#unionFind
 '''
 
 import sys
