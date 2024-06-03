@@ -60,6 +60,7 @@ class Solution(object):
         result = 0
 
         for i in range(32):
+            # binary shift the number right and see if the target bit is a '0'
             if (val >> i) & 1 == 0:
                 if operater == "add":
                     self.freqZero[i] += 1
