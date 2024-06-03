@@ -1,10 +1,10 @@
 """
 Was not able to figure it out on my own. Thought of using DP and while it is possible, it is better solved with sliding window.
 
-The key is to realize that bitwise result can NEVER increase when you add numbers to the AND chain.
-Similarly, the bitwise result can NEVER decrease when you remove numbers from the AND chaim.
+The key is to realize that the bitwise AND result can NEVER increase when you add numbers to the chain.
+Similarly, the bitwise AND result can NEVER decrease when you remove numbers from the chain.
 
-This requires understanding of how the AND operation works; it only takes one '0' to set the result bit to '0'.
+This requires understanding of how the AND operation works; it only takes one '0' to permanently set the result bit to '0'.
 
 Time Complexity:
 O((n + n) * 32)
