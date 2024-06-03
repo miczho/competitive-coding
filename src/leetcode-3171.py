@@ -23,7 +23,7 @@ class Solution(object):
         """
         # O(32) space
         self.freqZero = [0] * 32
-        
+
         INF = float("inf")
         n = len(nums)
 
@@ -38,7 +38,7 @@ class Solution(object):
                 currK = self.updateAndCalcCurrK(nums[hi], "add")
                 result = min(result, abs(currK - k))
                 hi += 1
-            
+
             # shrink the window until currK gets too large
             while lo != hi and currK <= k:
                 currK = self.updateAndCalcCurrK(nums[lo], "sub")
@@ -46,8 +46,8 @@ class Solution(object):
                 lo += 1
 
         return result
-    
-    
+
+
     # O(32) time
     def updateAndCalcCurrK(self, val, operater):
         result = 0
@@ -58,7 +58,7 @@ class Solution(object):
                     self.freqZero[i] += 1
                 elif operater == "sub":
                     self.freqZero[i] -= 1
-            
+
             if self.freqZero[i] == 0:
                 result += 2 ** i
 
