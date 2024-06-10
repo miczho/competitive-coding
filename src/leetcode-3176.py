@@ -38,10 +38,10 @@ class Solution(object):
             state = (currPos, prevPos, k)
 
             if state not in memo:
-                # if you select
+                # case 1: if you select
                 newK = k - (1 if prevPos != -1 and nums[prevPos] != nums[currPos] else 0)
                 case1 = 1 + dfs(currPos + 1, currPos, newK)
-                # if you don't select
+                # case 2: if you don't select
                 case2 = dfs(currPos + 1, prevPos, k)
 
                 memo[state] = max(case1, case2)
@@ -57,9 +57,10 @@ class Solution(object):
 
 """
 Attempt 2:
-Barely passes (8349ms).
+THIS IS THE EXPECTED SOLUTION
+
+Barely passes (7561ms).
 Using an array instead of a dict lowers the time to 6456ms.
-Using a string key instead of a tuple is TLE.
 
 Time Complexity:
 O(n^2 * k), where n = length of 'nums'
@@ -94,10 +95,10 @@ class Solution(object):
         for currPos in range(n):
             for currK in range(k + 1):
                 for prevPos in range(currPos):
-                    # 'k' is NOT affected
+                    # case 1: 'k' is NOT affected
                     if nums[prevPos] == nums[currPos]:
                         dp[currPos][currK] = max(dp[currPos][currK], dp[prevPos][currK] + 1)
-                    # 'k' is affected
+                    # case 2: 'k' is affected
                     elif currK > 0:
                         dp[currPos][currK] = max(dp[currPos][currK], dp[prevPos][currK - 1] + 1)
 
@@ -115,6 +116,7 @@ Inspiration taken from - https://leetcode.com/problems/find-the-maximum-length-o
 
 Instead of saving the index of 'nums' as part of our state, we save the value of 'nums' instead.
 The value can be large (10^9), but the length is small (500). We can use a hash map to set our upper bound to the length.
+The benefit of using val instead of idx is we can immediately get the longest subsequence ending with a certain val. With idx we would have to loop through to find the our target val.
 
 We also performed DP on the result. I don't know what's going on anymore.
 
@@ -143,18 +145,55 @@ class Solution(object):
         # O(n * k) space
         dp = defaultdict(lambda: defaultdict(lambda: 0))
         # O(k) space
+        # is there any way to reduce this to O(1) space???  PROBABLY NOT
         result = defaultdict(lambda: 0)
 
         # O(n * k) time
         for val in nums:
+            # why does looping forwards not work???
             for currK in range(k, -1, -1):
-                # 'k' is NOT affected
-                # shortened from `dp[val][currK] = max(dp[val][currK], dp[val][currK] + 1)`
-                dp[val][currK] += 1
-                # 'k' is affected
-                if currK > 0:
-                    dp[val][currK] = max(dp[val][currK], result[currK - 1] + 1)
-
+                # max(case 1, case 2)
+                dp[val][currK] = max(dp[val][currK] + 1, result[currK - 1] + 1)
                 result[currK] = max(result[currK], dp[val][currK])
 
+        # why is the k'th index always the largest value???
         return result[k]
+
+
+
+
+
+"""
+Attempt 4:
+F this problem. TLE
+"""
+
+from collections import defaultdict
+
+class Solution(object):
+    def maximumLength(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        n = len(nums)
+        # O(n * k) space
+        dp = defaultdict(lambda: defaultdict(lambda: 0))
+        result = 0
+
+        # O(n * k) time
+        for i in range(k + 1):
+            # when the previous number is the same as current
+            maxSame = defaultdict(lambda: 0)
+            # when the previous number is different from current
+            maxDiff = 0
+            for j in range(n):
+                dp[i][j] = max(maxSame[nums[j]] + 1, maxDiff + 1)
+                # print("num", nums[j], "k", i, "maxSame", maxSame[nums[j]], "maxDiff", maxDiff, "dp", dp[i][j])
+
+                maxSame[nums[j]] = dp[i][j]
+                maxDiff = max(maxDiff, dp[i - 1][j])
+                result = max(result, dp[i][j])
+
+        return result
