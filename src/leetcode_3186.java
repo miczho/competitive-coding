@@ -32,7 +32,7 @@ class Solution {
         // O(NlogN) time
         Arrays.sort(processedPower);
 
-        // O(NlogN) time 
+        // O(NlogN) time
         for (int i = 1; i < n + 1; i++) {
             if (processedPower[i] == processedPower[i - 1]) {
                 // you can greedily cast spells of the same power level
