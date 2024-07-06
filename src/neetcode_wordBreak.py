@@ -96,5 +96,5 @@ class Solution:
                         memo[start] = True
 
             return memo[start]
-        
+
         return dfs(0)
