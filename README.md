@@ -48,9 +48,9 @@ Some files will have commented tags inside to help teach important concepts or m
     - binarySearchFloat
 - ternarySearch
 
-
 ### Misc
 - favorite
 - revisit
+- blind75
 - year
     - 2024
