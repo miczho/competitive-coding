@@ -10,7 +10,7 @@
  * 
  * https://neetcode.io/problems/count-connected-components
  * 
- * #2024
+ * #2024 #blind75
  */
 
 class Solution {

@@ -16,7 +16,7 @@ O(N^2) where N = length of 's'
 
 https://neetcode.io/problems/word-break
 
-#2024
+#2024 #blind75
 """
 
 class Solution:

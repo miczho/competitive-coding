@@ -1,7 +1,7 @@
 /**
  * https://neetcode.io/problems/longest-consecutive-sequence
  * 
- * #2024
+ * #2024 #blind75
  */
 
 class Solution {
