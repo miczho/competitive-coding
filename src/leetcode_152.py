@@ -1,5 +1,4 @@
 class Solution(object):
-
     def maxProduct(self, nums):
         """
         :type nums: List[int]
@@ -36,6 +35,8 @@ O(N)
 
 Space Complexity:
 O(1)
+
+https://leetcode.com/problems/maximum-product-subarray/
 """
 
 class Solution(object):
