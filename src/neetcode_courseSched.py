@@ -98,3 +98,13 @@ class Solution(object):
                 return False
 
         return True
+
+
+
+
+
+"""
+Can be solved with BFS and topological sort.
+
+#revisit
+"""
