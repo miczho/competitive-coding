@@ -18,7 +18,8 @@ Some files will have commented tags inside to help teach important concepts or m
 - primes
 - mods
     - modularInverse
-- greedy
+- proof
+    - greedy
 - geometry
 - littleO
 
@@ -57,6 +58,9 @@ Some files will have commented tags inside to help teach important concepts or m
 - binarySearch
     - binarySearchFloat
 - ternarySearch
+
+### Bit Manipulation
+- bits
 
 ### Misc
 - favorite
