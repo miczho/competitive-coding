@@ -1,7 +1,3 @@
-"""
-#dp #hashMap
-"""
-
 import sys
 
 class Solution(object):
