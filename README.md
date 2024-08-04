@@ -18,15 +18,22 @@ Some files will have commented tags inside to help teach important concepts or m
 - primes
 - mods
     - modularInverse
+- greedy
 - geometry
 - littleO
 
 ### Data Structures
 - stack
-- set
-    - hashing
-- map
-    - hashMap
+- queue
+    - deque
+- linkedList
+- tree
+    - heap
+    - bst
+    - trie
+- hashing
+    - set
+    - map
 
 ### Graphs
 - dfs
