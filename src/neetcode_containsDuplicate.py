@@ -2,7 +2,7 @@
 https://neetcode.io/problems/duplicate-integer
 https://leetcode.com/problems/contains-duplicate
 
-#blind75 #set #hashing #2024
+#blind75 #neetcode150 #set #hashing #2024
 """
 
 class Solution(object):

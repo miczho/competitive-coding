@@ -2,7 +2,7 @@
 https://neetcode.io/problems/validate-parentheses
 https://leetcode.com/problems/valid-parentheses
 
-#blind75 #stack #2024
+#blind75 #neetcode150 #stack #2024
 """
 
 class Solution(object):
