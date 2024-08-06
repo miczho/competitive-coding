@@ -36,6 +36,13 @@ Some files will have commented tags inside to help teach important concepts or m
     - set
     - map
 
+### Pointers
+- twoPointers
+- slidingWindow
+- binarySearch
+    - binarySearchFloat
+- ternarySearch
+
 ### Graphs
 - dfs
     - backtracking
@@ -53,11 +60,6 @@ Some files will have commented tags inside to help teach important concepts or m
 - gameTheory
     - nim
     - minimax
-
-### Searching
-- binarySearch
-    - binarySearchFloat
-- ternarySearch
 
 ### Bit Manipulation
 - bits
