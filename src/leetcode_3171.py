@@ -18,7 +18,7 @@ O(32)
 
 https://leetcode.com/problems/find-subarray-with-bitwise-and-closest-to-k/description/
 
-#2024 #favorite #revisit
+#slidingWindow #2024 #favorite #revisit
 """
 
 class Solution(object):
