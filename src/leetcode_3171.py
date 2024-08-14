@@ -72,3 +72,29 @@ class Solution(object):
                 result += 2 ** i
 
         return result
+
+
+
+"""
+A clever solution - O(32n) time
+"""
+
+class Solution(object):
+    def minimumDifference(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        ans = float("inf")
+        prev = set()
+
+        for num in nums:
+            curr = {num}
+            for val in prev:
+                curr.add(val | num)
+            for val in curr:
+                ans = min(ans, abs(k - val))
+            prev = curr
+
+        return ans
