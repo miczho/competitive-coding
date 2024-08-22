@@ -100,6 +100,7 @@ Where N = # of nodes in 'tree1' and M = # of nodes in 'tree2'
 """
 
 from typing import List
+from collections import defaultdict
 
 class Node:
     def __init__(self, key: str, value: int, children: List['Node'] = []):
@@ -108,36 +109,29 @@ class Node:
         self.children = children
 
 def countDifferences(tree1: Node, tree2: Node) -> int:
-    node1, node2 = tree1, tree2
+    def dfs(node1, node2):
+        children1, children2 = defaultdict(lambda: None), defaultdict(lambda: None)
+        keys = set()
+        result = 0
 
-    if node1 == None and node2 == None:
-        return 0
-
-    children1, children2 = {}, {}
-    keys = set()
-    values = []
-    result = 0
-
-    if node1 != None:
-        values.append(node1.value)
-        for child in node1.children:
+        for child in getattr(node1, "children", []):
             children1[child.key] = child
             keys.add(child.key)
-    if node2 != None:
-        values.append(node2.value)
-        for child in node2.children:
+        for child in getattr(node2, "children", []):
             children2[child.key] = child
             keys.add(child.key)
-    
-    result += 1 if len(values) == 2 and values[0] != values[1] else 0
 
-    for key in keys:
-        if key in children1 and key in children2:
-            result += countDifferences(children1[key], children2[key])
-        else:
-            result += 1 + countDifferences(children1.get(key, None), children2.get(key, None))
+        if getattr(node1, "value", None) != getattr(node2, "value", None):
+            result += 1
 
-    return result
+        for key in keys:
+            result += dfs(children1[key], children2[key])
+
+        return result
+
+    sentinel1, sentinel2 = Node("", 0, [tree1] if tree1 else []), Node("", 0, [tree2] if tree2 else [])
+
+    return dfs(sentinel1, sentinel2)
 
 
 
@@ -154,38 +148,33 @@ O(N + M)
 Where N = # of nodes in 'tree1' and M = # of nodes in 'tree2'
 """
 
-from collections import deque
+# from collections import deque, defaultdict
 
-def countDifferences2(tree1: Node, tree2: Node) -> int:
-    queue = deque([tree1, tree2])
-    result = 0
+# def countDifferences(tree1: Node, tree2: Node) -> int:
+#     sentinel1, sentinel2 = Node("", 0, [tree1] if tree1 else []), Node("", 0, [tree2] if tree2 else [])
+#     queue = deque([sentinel1, sentinel2])
+#     result = 0
     
-    while len(queue) != 0:
-        node1, node2 = queue.popleft(), queue.popleft()
-        children1, children2 = {}, {}
-        keys = set()
-        values = []
+#     while len(queue) != 0:
+#         node1, node2 = queue.popleft(), queue.popleft()
+#         children1, children2 = defaultdict(lambda: None), defaultdict(lambda: None)
+#         keys = set()
 
-        if node1 != None:
-            values.append(node1.value)
-            for child in node1.children:
-                children1[child.key] = child
-                keys.add(child.key)
-        if node2 != None:
-            values.append(node2.value)
-            for child in node2.children:
-                children2[child.key] = child
-                keys.add(child.key)
-        
-        result += 1 if len(values) == 2 and values[0] != values[1] else 0
+#         for child in getattr(node1, "children", []):
+#             children1[child.key] = child
+#             keys.add(child.key)
+#         for child in getattr(node2, "children", []):
+#             children2[child.key] = child
+#             keys.add(child.key)
 
-        for key in keys:
-            if key not in children1 or key not in children2:
-                result += 1
-            queue.append(children1.get(key, None))
-            queue.append(children2.get(key, None))
-        
-    return result
+#         if getattr(node1, "value", None) != getattr(node2, "value", None):
+#             result += 1
+
+#         for key in keys:
+#             queue.append(children1[key])
+#             queue.append(children2[key])
+
+#     return result
 
 
 tree1 = Node("A", 1, [
@@ -261,3 +250,22 @@ print(countDifferences(tree1, tree2))  # expected output: 7
 tree1 = None
 tree2 = None
 print(countDifferences(tree1, tree2))  # expected output: 0
+
+
+tree1 = Node("A", 1, [
+    Node("B", 2),
+    Node("C", 3)
+])
+tree2 = Node("D", 1, [
+    Node("E", 4),
+    Node("F", 5)
+])
+print(countDifferences(tree1, tree2))  # expected output: 6
+
+
+tree1 = Node("A", 1, [
+    Node("B", 2),
+    Node("C", 3)
+])
+tree2 = None
+print(countDifferences(tree1, tree2))  # expected output: 3
