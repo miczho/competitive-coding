@@ -121,11 +121,11 @@ def countDifferences(tree1: Node, tree2: Node) -> int:
             children2[child.key] = child
             keys.add(child.key)
 
-        if getattr(node1, "value", None) != getattr(node2, "value", None):
-            result += 1
-
         for key in keys:
             result += dfs(children1[key], children2[key])
+
+        if getattr(node1, "value", None) != getattr(node2, "value", None):
+            result += 1
 
         return result
 
@@ -167,12 +167,12 @@ Where N = # of nodes in 'tree1' and M = # of nodes in 'tree2'
 #             children2[child.key] = child
 #             keys.add(child.key)
 
-#         if getattr(node1, "value", None) != getattr(node2, "value", None):
-#             result += 1
-
 #         for key in keys:
 #             queue.append(children1[key])
 #             queue.append(children2[key])
+
+#         if getattr(node1, "value", None) != getattr(node2, "value", None):
+#             result += 1
 
 #     return result
 
