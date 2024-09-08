@@ -105,8 +105,6 @@ class Solution(object):
 
 """
 Attempt 3: BFS and topological sort
-
-#topSort
 """
 
 class Solution:
