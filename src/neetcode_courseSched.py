@@ -104,7 +104,34 @@ class Solution(object):
 
 
 """
-Can be solved with BFS and topological sort.
+Attempt 3: BFS and topological sort
 
-#revisit
+#topSort
 """
+
+class Solution:
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        children = [[] for _ in range(numCourses)]
+        inDegree = [0] * numCourses
+        queue = []
+
+        for child, parent in prerequisites:
+            children[parent].append(child)
+            inDegree[child] += 1
+
+        for course in range(numCourses):
+            if inDegree[course] == 0:
+                queue.append(course)
+
+        for course in queue:
+            for child in children[course]:
+                inDegree[child] -= 1
+                if inDegree[child] == 0:
+                    queue.append(child)
+
+        return len(queue) == numCourses
