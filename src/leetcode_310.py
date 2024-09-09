@@ -36,5 +36,5 @@ class Solution:
                 queue = nextQueue
             else:
                 break
-        
+
         return queue
