@@ -30,7 +30,6 @@ class Solution:
                     children[child].remove(node)
                     if len(children[child]) == 1:
                         nextQueue.append(child)
-                children[node].clear()
 
             if len(nextQueue) != 0:
                 queue = nextQueue
