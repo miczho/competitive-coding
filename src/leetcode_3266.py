@@ -4,7 +4,7 @@ This problem was way above my skill level.
 The key is to prove that once `currMinNum * multiplier > originalMaxNum`,
 every subsequent iteration results in `currMinNum * multiplier > currMaxNum`.
 
-From there, greedy assign the reset of the iterations.
+From there, greedy assign the rest of the iterations.
 
 Time Complexity:
 O(NlogK) where N = length of 'nums' and K = 'k'
