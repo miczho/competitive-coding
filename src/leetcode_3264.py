@@ -25,11 +25,10 @@ class Solution:
         while k != 0:
             k -= 1
             num, i = heap[0]
-            newNum = num * multiplier
-            result[i] = newNum
-            heapq.heapreplace(heap, (newNum, i))
+            result[i] *= multiplier
+            heapq.heapreplace(heap, (result[i], i))
             # This condition is safisfied quickly
-            if newNum > maxNum:
+            if result[i] > maxNum:
                 break
 
         kQuotient, kRemainder = divmod(k, n)
