@@ -23,10 +23,10 @@ class Solution:
         heapq.heapify(heap)
 
         while k != 0:
-            k -= 1
             i = heap[0][1]
             result[i] *= multiplier
             heapq.heapreplace(heap, (result[i], i))
+            k -= 1
             # This condition is safisfied quickly
             if result[i] > maxNum:
                 break
