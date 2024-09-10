@@ -1,3 +1,7 @@
+"""
+#incomplete
+"""
+
 import sys
 
 def strangeDefintion():
