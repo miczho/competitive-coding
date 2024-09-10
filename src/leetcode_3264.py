@@ -24,7 +24,7 @@ class Solution:
 
         while k != 0:
             k -= 1
-            num, i = heap[0]
+            i = heap[0][1]
             result[i] *= multiplier
             heapq.heapreplace(heap, (result[i], i))
             # This condition is safisfied quickly
