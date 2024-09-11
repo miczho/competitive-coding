@@ -4,6 +4,8 @@ This is a big repo for all the coding problems I've done starting from early 202
 
 ## Resources
 
+[One Compiler | Mocking DSA Interviews](https://onecompiler.com/)
+
 [https://cp-algorithms.com/](https://cp-algorithms.com/)  
 [https://neetcode.io/](https://neetcode.io/)
 
