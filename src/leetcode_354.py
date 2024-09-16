@@ -10,6 +10,7 @@ class Solution(object):
         :type envelopes: List[List[int]]
         :rtype: int
         """
+        # Reverse sorting is important because it prevents counting envelopes with the same width multiple times, as they can't fit into each other
         envelopes.sort(key=lambda x: (x[0], -x[1]))
         
         n = len(envelopes)
