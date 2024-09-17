@@ -1,7 +1,7 @@
 """
-#dp #lis #binarySearch
+https://leetcode.com/problems/longest-increasing-subsequence
 
-https://leetcode.com/problems/longest-increasing-subsequence/
+#favorite #dp #lis #binarySearch
 """
 
 class Solution(object):
