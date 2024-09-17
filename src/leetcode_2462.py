@@ -13,33 +13,22 @@ class Solution:
         :rtype: int
         """
         n, INF = len(costs), float("inf")
-        loHeap, hiHeap = [], []
         lo, hi = 0, n - 1
+        loHeap, hiHeap = [INF], [INF]
         result = 0
 
-        while lo < candidates:
-            heappush(loHeap, costs[lo])
-            lo += 1
-
-        while hi > n - candidates - 1 and hi >= lo:
-            heappush(hiHeap, costs[hi])
-            hi -= 1
-
         for _ in range(k):
-            loCost = loHeap[0] if loHeap else INF
-            hiCost = hiHeap[0] if hiHeap else INF
+            while len(loHeap) - 1 < candidates and lo <= hi:
+                heappush(loHeap, costs[lo])
+                lo += 1
 
-            if hiCost < loCost:
-                result += hiCost
-                heappop(hiHeap)
-                if hi >= lo:
-                    heappush(hiHeap, costs[hi])
-                    hi -= 1
+            while len(hiHeap) - 1 < candidates and lo <= hi:
+                heappush(hiHeap, costs[hi])
+                hi -= 1
+
+            if hiHeap[0] < loHeap[0]:
+                result += heappop(hiHeap)
             else:
-                result += loCost
-                heappop(loHeap)
-                if lo <= hi:
-                    heappush(loHeap, costs[lo])
-                    lo += 1
+                result += heappop(loHeap)
 
         return result
