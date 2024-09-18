@@ -100,6 +100,8 @@ def sumBeauties2(n, arr, m, pairs):
     beauty[parsedArr[0][0]] = 0  # Beauty of smallest element is always 0
 
     # TODO: debugging
+    print(arr)
+    print(pairs)
     print("idx", parsedArr[0][1], "num", parsedArr[0][0], "contributed", contributed[parsedArr[0][1]], "beauty", beauty[parsedArr[0][0]])
 
     for i in range(1, n):
