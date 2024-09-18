@@ -3,6 +3,7 @@ Generic formula for backtracking time complexity = O((Branching Factor)^Depth)
 Branching Factor = # of times DFS is called in one layer
 Depth = How deep DFS travels
 
+https://neetcode.io/problems/n-queens
 https://leetcode.com/problems/n-queens
 
 #neetcode150 #2024
