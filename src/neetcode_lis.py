@@ -4,7 +4,7 @@ DP solution is O(n^2) time
 https://leetcode.com/problems/longest-increasing-subsequence
 https://neetcode.io/problems/longest-increasing-subsequence
 
-#2024 #blind75 #neetcod150 #favorite #lis #binarySearch
+#2024 #blind75 #neetcode150 #favorite #lis #binarySearch
 """
 
 from bisect import bisect_left
