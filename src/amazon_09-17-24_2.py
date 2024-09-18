@@ -68,8 +68,64 @@ def sumBeauties(n, arr, m, pairs):
     return result
 
 
+def sumBeauties2(n, arr, m, pairs):
+    """
+    Time complexity:
+    Cost of sorting 'arr' to build 'parsedArr'
+    O(n * log n)
+
+    Space complexity:
+    Size of 'parsedArr' == 'contributed' == 'freq' == 'beauty'
+    O(n)
+    """
+    parsedArr = sorted((num, i) for i, num in enumerate(arr))
+    contributed = [0] * (n + 1)  # how often an element INDEX is used in 'beautiful'
+    freq = {}  # how often an element VALUE is used in 'beautiful'
+    beauty = {}
+    result = 0
+
+    # Set up 'contributed'
+    for start, end in pairs:
+        contributed[start] += 1
+        contributed[end + 1] -= 1
+
+    # Build 'contributed' and 'freq'
+    for i in range(n):
+        if arr[i] not in freq:
+            freq[arr[i]] = 0
+
+        freq[arr[i]] += contributed[i]
+        contributed[i + 1] += contributed[i]
+
+    beauty[parsedArr[0][0]] = 0  # Beauty of smallest element is always 0
+
+    # TODO: debugging
+    print("idx", parsedArr[0][0], "num", parsedArr[0][1], "contributed", contributed[parsedArr[0][1]], "beauty", beauty[parsedArr[0][0]])
+
+    for i in range(1, n):
+        num, idx = parsedArr[i]
+        prevNum = parsedArr[i - 1][0]
+
+        # Only need to calc beauty of diff value elements
+        # Beauty of same value elements are equal
+        if num != prevNum:
+            # Beauty = Beauty of prev num + Freq of prev num in 'beautiful'
+            beauty[num] = beauty[prevNum] + freq[prevNum]
+
+        # Only add beauty if not contributed to 'beautiful'
+        if contributed[idx] == 0:
+            result += beauty[num]
+
+        # TODO: debugging
+        print("idx", idx, "num", num, "contributed", contributed[idx], "beauty", beauty[num])
+
+    return result
+
+
+
 n = 6
 arr = [1, 2, 3, 2, 4, 5]
 m = 4
 pairs = [[0, 1], [3, 4], [0, 0], [3, 4]]
 print(sumBeauties(n, arr, m, pairs))
+print(sumBeauties2(n, arr, m, pairs))
