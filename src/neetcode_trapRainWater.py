@@ -8,7 +8,7 @@ O(N)
 https://neetcode.io/problems/trapping-rain-water
 https://leetcode.com/problems/trapping-rain-water
 
-#blind75 #neetcode150 #dp #2024
+#neetcode150 #dp #2024
 """
 
 class Solution(object):

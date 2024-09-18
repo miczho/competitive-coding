@@ -2,7 +2,7 @@
 https://neetcode.io/problems/longest-increasing-path-in-matrix
 https://leetcode.com/problems/longest-increasing-path-in-a-matrix
 
-#blind75 #neetcode150 #2024
+#neetcode150 #2024
 """
 
 class Solution(object):
