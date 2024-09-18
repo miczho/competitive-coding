@@ -2,6 +2,7 @@
  * Note that this problem will convert from signed to unsigned int for you
  * 
  * https://neetcode.io/problems/reverse-bits
+ * https://leetcode.com/problems/reverse-bits
  * 
  * #2024 #blind75 #neetcode150
  */

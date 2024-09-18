@@ -15,6 +15,7 @@ Space Complexity:
 O(N^2) where N = length of 's'
 
 https://neetcode.io/problems/word-break
+https://leetcode.com/problems/word-break
 
 #2024 #blind75 #neetcode150
 """

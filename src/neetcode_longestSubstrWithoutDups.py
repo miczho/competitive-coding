@@ -1,5 +1,6 @@
 """
 https://neetcode.io/problems/longest-substring-without-duplicates
+https://leetcode.com/problems/longest-substring-without-repeating-characters
 
 #2024 #blind75 #neetcode150
 """

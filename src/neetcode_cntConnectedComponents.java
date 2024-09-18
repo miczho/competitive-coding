@@ -9,6 +9,7 @@
  * NOTE: not too sure about this
  * 
  * https://neetcode.io/problems/count-connected-components
+ * https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph
  * 
  * #2024 #blind75 #neetcode150
  */

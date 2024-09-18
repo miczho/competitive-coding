@@ -7,6 +7,7 @@ Time Complexity:
 O(N^2)
 
 https://neetcode.io/problems/three-integer-sum
+https://leetcode.com/problems/3sum
 
 #2024 #blind75 #neetcode150
 """

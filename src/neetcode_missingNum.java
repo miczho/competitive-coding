@@ -1,5 +1,6 @@
 /**
  * https://neetcode.io/problems/missing-number
+ * https://leetcode.com/problems/missing-number
  * 
  * #2024 #blind75 #neetcode150
  */

@@ -1,5 +1,6 @@
 /**
  * https://neetcode.io/problems/longest-consecutive-sequence
+ * https://leetcode.com/problems/longest-consecutive-sequence
  * 
  * #2024 #blind75 #neetcode150
  */
