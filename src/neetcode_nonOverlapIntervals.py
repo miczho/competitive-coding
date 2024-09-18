@@ -28,7 +28,7 @@ class Solution(object):
                 return 0
             if dp[pos] != -1:
                 return dp[pos]
-            
+
             lo = pos
             hi = n
             while lo + 1 != hi:
@@ -37,7 +37,7 @@ class Solution(object):
                     lo = mid
                 else:
                     hi = mid
-            
+
             case1 = 1 + dfs(hi)
             case2 = dfs(pos + 1)
 
@@ -76,5 +76,5 @@ class Solution(object):
                 result += 1
             else:
                 curr = end
-        
+
         return result
