@@ -25,8 +25,51 @@ pairs = [[0, 1], [3, 4], [0, 0], [3, 4]]
 Output:
 12
 
-#interview
+#interview #2024
 """
 
 def sumBeauties(n, arr, m, pairs):
-    pass
+    """
+    Time complexity:
+    Worst case 'beautiful' has m * n elements, and we have to sort 'beautiful'
+    O((m * n) * log(m * n))
+
+    Space complexity:
+    Size of 'beautiful'
+    O(m * n)
+    """
+    contributed = [False] * n
+    beautiful = []
+    result = 0
+
+    for start, end in pairs:
+        for i in range(start, end + 1):
+            contributed[i] = True
+            beautiful.append(arr[i])
+
+    beautiful.sort()
+
+    for i in range(n):
+        if contributed[i]:
+            continue
+
+        lo, hi = -1, len(beautiful)
+
+        while lo + 1 != hi:
+            mid = lo + (hi - lo) // 2
+
+            if beautiful[mid] < arr[i]:
+                lo = mid
+            else:
+                hi = mid
+
+        result += hi
+
+    return result
+
+
+n = 6
+arr = [1, 2, 3, 2, 4, 5]
+m = 4
+pairs = [[0, 1], [3, 4], [0, 0], [3, 4]]
+print(sumBeauties(n, arr, m, pairs))
