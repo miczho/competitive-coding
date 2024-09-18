@@ -1,7 +1,7 @@
 """
 https://leetcode.com/problems/russian-doll-envelopes
 
-#favorite #binarySearch
+#favorite #binarySearch #lis
 """
 
 class Solution(object):
