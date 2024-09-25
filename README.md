@@ -6,8 +6,8 @@ This is a big repo for all the coding problems I've done starting from early 202
 
 [One Compiler | Mocking DSA Interviews](https://onecompiler.com/)
 
-[https://cp-algorithms.com/](https://cp-algorithms.com/)  
-[https://neetcode.io/](https://neetcode.io/)
+[CP-Algorithms | Algos for Competitive Programming](https://cp-algorithms.com/)  
+[NeetCode | DSA Interview Practice](https://neetcode.io/)
 
 ## \#Tags
 
