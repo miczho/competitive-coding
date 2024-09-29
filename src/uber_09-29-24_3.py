@@ -13,17 +13,17 @@ def dropBlock(board):
         if "*" in board[i]:
             break
         move += 1
-    
+
     for i in range(n):
         for j in range(m):
             if board[i][j] != "*":
                 continue
-            
+
             for ii in range(i, i + move):
                 if board[ii][j] == "#":
                     board[ii][j] == "."
                     result += 1
-    
+
     return result
 
 
