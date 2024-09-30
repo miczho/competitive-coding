@@ -33,6 +33,9 @@ def dropBlock2(board):
                 board[ii][j] = "."
                 result += 1
 
+                # NOTE: debugging
+                # print("\n" + "\n".join(" ".join(row) for row in board))
+
     return result
 
 
@@ -66,15 +69,7 @@ def dropBlock(board):
                     break
 
                 visited[ii][j] = True
-
-                if board[ii][j] != "#":
-                    continue
-
-                board[ii][j] = "."
-                result += 1
-
-                # NOTE: debugging
-                # print("\n" + "\n".join(" ".join(row) for row in board))
+                result += board[ii][j] == "#"
 
     return result
 
