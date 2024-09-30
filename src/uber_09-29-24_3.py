@@ -1,8 +1,15 @@
 """
-Given a shape on a board, determine the minimum amount of obstacles you need to destroy for the shape to fall vertically to the bottom row.
+===== Problem: Tetris Obstacles =====
 
-The symbols '.' denotes free space, '#' denotes an obstacle, and '*' denotes part of the shape.
+You are given a Tetris board in the following format:
+
+'.' denotes free space
+'#' denotes an obstacle
+'*' denotes part of the shape
+
 It is guaranteed that the '*' cells are adjacent to each other to form one contiguous shape.
+
+Determine the minimum amount of obstacles you need to destroy for the shape to fall vertically to the bottom row.
 
 #2024 #interview
 """
@@ -110,3 +117,12 @@ if __name__ == "__main__":
         [".", ".", "#"]
     ]
     print(dropBlock(board))  # 5
+
+    board = [
+        ["*", "*", "*"],
+        ["*", ".", "*"],
+        ["*", "#", "."],
+        ["*", "*", "*"],
+        ["#", ".", "#"]
+    ]
+    print(dropBlock(board))  # 2
