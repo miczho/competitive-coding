@@ -6,7 +6,7 @@ What if there are roadblocks?
 Check if new cell is blocked.
 Need to pass cost into deque to prevent recalculations.
 
-https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid
+https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/
 
 #favorite #bfs #01bfs #2024
 """
@@ -33,19 +33,23 @@ class Solution:
 
             for key, move in moves.items():
                 iNew, jNew = i + move[0], j + move[1]
+                weight = key != grid[i][j]
+                newCost = costs[i][j] + weight
 
-                if 0 <= iNew < m and 0 <= jNew < n:
-                    weight = 0 if key == grid[i][j] else 1
-                    newCost = costs[i][j] + weight
+                idxOutOfRange = not (0 <= iNew < m and 0 <= jNew < n)
+                worseCost = idxOutOfRange or newCost >= costs[iNew][jNew]
 
-                    if newCost < costs[iNew][jNew]:
-                        costs[iNew][jNew] = newCost
+                if idxOutOfRange or worseCost:
+                    continue
 
-                        if weight == 0:
-                            dq.append(jNew)
-                            dq.append(iNew)
-                        else:
-                            dq.appendleft(iNew)
-                            dq.appendleft(jNew)
+                costs[iNew][jNew] = newCost
+
+                # key part of 0-1 BFS
+                if weight == 0:
+                    dq.append(jNew)
+                    dq.append(iNew)
+                else:
+                    dq.appendleft(iNew)
+                    dq.appendleft(jNew)
 
         return costs[-1][-1]
