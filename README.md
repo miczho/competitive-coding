@@ -10,6 +10,8 @@ This is a big repo for all the coding problems I've done starting from early 202
 
 [CP-Algorithms | Algos for Competitive Programming](https://cp-algorithms.com/)
 
+[Recently asked LeetCode questions during interview](https://github.com/krishnadey30/LeetCode-Questions-CompanyWise)
+
 ## \#Tags
 
 Some files will have commented tags inside to help teach important concepts or methods. Do some sort of string search command like `grep -r '#dfs' *` to query for specific tags.
